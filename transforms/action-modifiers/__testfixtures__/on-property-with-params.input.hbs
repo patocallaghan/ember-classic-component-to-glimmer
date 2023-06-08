@@ -1,0 +1,3 @@
+<Button @onClick={{action "foo" "bar"}} />
+<Button @onClick={{action this.foo "bar" "baz"}} />
+<Button @onClick={{action @foo "bar" "baz" this.somethingElse}} />

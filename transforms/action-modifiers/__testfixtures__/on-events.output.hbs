@@ -1,0 +1,24 @@
+<div
+	@escape-press={{this.exitEditMode}}
+>Button</div>
+<div
+	{{on "click" this.toggleEditMode}}
+>Button</div>
+<div
+	{{on "keypress" this.toggleEditMode}}
+>Button</div>
+<div
+	{{on "keypress" (fn this.toggleEditMode test)}}
+>Button</div>
+<div
+	{{on "submit" @onKeyPress}}
+>Button</div>
+<div
+	{{on "submit" (fn @onKeyPress test)}}
+>Button</div>
+<div
+	{{on "mousedown" (toggle "someProperty" this)}}
+>Button</div>
+<div
+	{{on "mousedown" (fn (toggle "someProperty" this) test)}}
+>Button</div>

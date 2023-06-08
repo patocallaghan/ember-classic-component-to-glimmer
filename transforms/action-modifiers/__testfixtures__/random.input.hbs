@@ -1,0 +1,10 @@
+<div {{action "someAction"}}>Button</div>
+<div {{action this.date}}>Button</div>
+<div {{action "sort" displayedAttribute}}>Button</div>
+<div {{action "toggleDisplayed" "opened"}}>Button</div>
+<div {{action (optional (if this.isPublicAppStore (action "scrollToTop") null))}}>Button</div>
+<div {{action calendar.actions.moveCenter 0 "month"}}>Button</div>
+<div {{action (get @tableActions @column.action) (get @row @column.propertyName)}}>Button</div>
+<div {{action @completionCallback (hash analyticsMetadata=@baseAnalyticsMetadata)}}>Button</div>
+<div {{action (perform this.archive)}}>Button</div>
+<div {{action (perform this.archive) this.user}}>Button</div>
