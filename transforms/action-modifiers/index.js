@@ -5,6 +5,29 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
     let { builders: b } = env.syntax;
 
     return {
+      SubExpression(node) {
+        if (node.path.original !== 'action') {
+          return node;
+        }
+
+        let newAction = null;
+
+        let [action, ...curriedArgs] = node.params;
+        let value = node.hash?.pairs?.find((p) => p.key === 'value');
+
+        // {{action "foo"}} -> {{on "click" this.foo}}
+        if (action.type === 'StringLiteral') {
+          newAction = b.path(`this.${action.value}`);
+        }
+
+        if (action.type === 'PathExpression' || action.type === 'SubExpression') {
+          newAction = action;
+        }
+
+        newAction = node.params.length > 1 ? generateFn(b, newAction, curriedArgs) : newAction;
+        newAction = value ? generatePick(b, value, newAction) : newAction;
+        return newAction;
+      },
       ElementModifierStatement(node) {
         if (node.path.original !== 'action') {
           return node;

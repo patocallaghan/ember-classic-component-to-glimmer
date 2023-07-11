@@ -1,0 +1,33 @@
+<button {{on "click" (if paywall.isActive (noop) (action "showModal"))}}>button</button>
+<input
+  {{on "change" (action "toggleValidation")}}
+/>
+<Answers::TestAnswerModal
+	@editExampleQuestions={{queue
+		(fn @toggleTestAnswerModal false)
+		(action accordion.publicAPI.openSection)
+	}}
+	@composeAnswer={{queue
+		(fn @toggleTestAnswerModal false)
+		(action accordion.publicAPI.openSection "response-editor")
+	}}
+/>
+<IcButton
+  @onClick={{stop-propagation (action "toggleDropdown")}}
+/>
+<span class="t__h4">{{compute (action "getPrice") product}}</span>
+{{on-key "cmd+Enter" (action "submit")}}
+{{yield
+  (hash
+    body=(component
+      "common/accordion-component/body"
+      accordionAPI=(hash
+        closeSection=(action this.publicAPI.closeSection this.externalName)
+        openSection=(action this.publicAPI.openSection)
+      )
+    )
+  )
+}}
+<OneWayInput
+  @keyEvents={{hash 13=(action "completeEditing") 27=(action "cancelEditing")}}
+/>

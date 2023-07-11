@@ -2,7 +2,7 @@
 <div {{on "click" this.date}}>Button</div>
 <div {{on "click" (fn this.sort displayedAttribute)}}>Button</div>
 <div {{on "click" (fn this.toggleDisplayed "opened")}}>Button</div>
-<div {{on "click" (optional (if this.isPublicAppStore (action "scrollToTop") null))}}>Button</div>
+<div {{on "click" (optional (if this.isPublicAppStore this.scrollToTop null))}}>Button</div>
 <div {{on "click" (fn calendar.actions.moveCenter 0 "month")}}>Button</div>
 <div {{on "click" (fn (get @tableActions @column.action) (get @row @column.propertyName))}}>Button</div>
 <div {{on "click" (fn @completionCallback (hash analyticsMetadata=@baseAnalyticsMetadata))}}>Button</div>
