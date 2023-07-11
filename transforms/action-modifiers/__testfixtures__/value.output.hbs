@@ -1,12 +1,27 @@
 <div
-	oninput={{action this.componentAttrs.blah value="target.value"}}
+	{{on "input" (pick "target.value" this.componentAttrs.blah)}}
 >Button</div>
 <div
-	onmouseenter={{action this.componentAttrs.blah value="target.value"}}
+	{{on "mouseenter" (pick "target.value" this.componentAttrs.blah)}}
 >Button</div>
 <div
-	onmouseleave={{action this.componentAttrs.blah value="target.value"}}
+	{{on "mouseleave" (pick "target.value" this.componentAttrs.blah)}}
 >Button</div>
 <div
-	onsubmit={{action this.componentAttrs.blah value="target.value"}}
+	{{on "submit" (pick "target.value" this.componentAttrs.blah)}}
+>Button</div>
+<div
+	{{on "submit" (pick "target.value" (toggle this.componentAttrs.blah))}}
+>Button</div>
+<div
+	{{on "click" (pick "target.value" (add this.componentAttrs.blah foo))}}
+>Button</div>
+<div
+	{{on "click" (pick "target.value" this.componentAttrs.blah)}}
+>Button</div>
+<div
+	{{on "click" (pick "target.value" (toggle this.componentAttrs.blah))}}
+>Button</div>
+<div
+	{{on "click" (pick "target.value" (add this.componentAttrs.blah foo))}}
 >Button</div>

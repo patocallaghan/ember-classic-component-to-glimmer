@@ -10,3 +10,18 @@
 <div
 	onsubmit={{action this.componentAttrs.blah value="target.value"}}
 >Button</div>
+<div
+	onsubmit={{action (toggle this.componentAttrs.blah) value="target.value"}}
+>Button</div>
+<div
+	onclick={{action (add this.componentAttrs.blah foo) value="target.value"}}
+>Button</div>
+<div
+	{{action this.componentAttrs.blah value="target.value"}}
+>Button</div>
+<div
+	{{action (toggle this.componentAttrs.blah) value="target.value"}}
+>Button</div>
+<div
+	{{action (add this.componentAttrs.blah foo) value="target.value"}}
+>Button</div>

@@ -22,3 +22,9 @@
 <div
 	{{on "mousedown" (fn (toggle "someProperty" this) test)}}
 >Button</div>
+<div
+	{{on "change" this.handleMultiSelect}}
+>Button</div>
+<div
+	{{on "mousedown" (toggle "someProperty" this)}}
+>Button</div>

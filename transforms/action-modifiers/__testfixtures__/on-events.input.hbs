@@ -22,3 +22,9 @@
 <div
 	onmousedown={{action (toggle "someProperty" this) test}}
 >Button</div>
+<div
+	{{action "handleMultiSelect" on="change"}}
+>Button</div>
+<div
+	{{action (toggle "someProperty" this) on="mouseDown"}}
+>Button</div>

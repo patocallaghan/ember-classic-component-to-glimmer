@@ -1,3 +1,2 @@
-
-<div {{action "previousMonth" bubbles=false}}>Button</div>
-<div {{action "previousMonth" day.date bubbles=false}}>Button</div>
+<div {{on "click" this.previousMonth}}>Button</div>
+<div {{on "click" (fn this.previousMonth day.date)}}>Button</div>
