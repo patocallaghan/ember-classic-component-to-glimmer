@@ -13,10 +13,12 @@
     "codemod-cli"
   ],
   "dependencies": {
-    "codemod-cli": "^3.2.0"
+    "codemod-cli": "^3.2.0",
+    "ember-template-recast": "^6.1.4"
   },
   "resolutions": {
-    "jscodeshift": "^0.13.0"
+    "jscodeshift": "^0.13.0",
+    "ember-template-recast": "^6.1.4"
   },
   "devDependencies": {
     "coveralls": "^3.1.0",
