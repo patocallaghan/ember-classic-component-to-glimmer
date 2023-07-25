@@ -25,7 +25,7 @@ module.exports = function transformer(file, api) {
     .forEach((path) => {
       let hook = path.node.key.name;
       let comment = j.commentLine(
-        ` CODE MIGRATION HINT: \`${hook}\` is a Classic Component hook and should not be used in Glimmer Components. For more information on how to migrate away from using it see TODO.`,
+        ` CODE MIGRATION HINT: \`${hook}\` is a Classic Component hook and should not be used in Glimmer Components. For more information on how to migrate away from using it see https://go.inter.com/component-lifecycle-hooks.`,
         true,
         false
       );
